@@ -52,6 +52,7 @@ PlatformIO IDE Extension: Professional extension for IoT development.
     GND → GND Rail
     
     AO (Analog Out) → GPIO 34 (labeled VP or 34)
+<img width="1572" height="1069" alt="WhatsApp Image 2026-04-27 at 16 53 05" src="https://github.com/user-attachments/assets/8a16ea43-518a-41d8-bef9-e05bfacdf0d1" />
 
 # 4. Setup and Build
 
