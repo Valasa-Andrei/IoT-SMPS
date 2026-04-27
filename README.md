@@ -4,31 +4,54 @@ A smart monitoring system for plants
     The Smart Garden Environmental Monitoring System is an IoT-based project designed to track the health of indoor plants in real-time. By utilizing an ESP32 microcontroller, the system monitors four critical variables: air temperature, humidity, ambient light intensity, and soil moisture levels. This data is processed locally and streamed to a high-fidelity visualizer in VS Code (Teleplot), allowing for immediate data analysis and intervention. The goal of the project is to provide a low-power, scalable solution for precision agriculture and home automation.
 
 ## 2. Pre-requisites
-    # Hardware Components
-    ESP32 DevKit V1 (30-pin): The core microcontroller with Wi-Fi and Bluetooth capabilities. Specification Datasheet
+# Hardware Components
+    ESP32 DevKit V1 (30-pin): The core microcontroller with Wi-Fi and Bluetooth capabilities. Specification Datasheet https://documentation.espressif.com/esp32_datasheet_en.pdf
     
-    DHT22 (AM2302): High-accuracy digital temperature and humidity sensor. Specification Datasheet
+    DHT22 (AM2302): High-accuracy digital temperature and humidity sensor. Specification Datasheet https://www.edn.com/am2302-dht22-datasheet/
     
-    BH1750 (GY-302): Digital Ambient Light Sensor with I2C interface. Specification Datasheet
+    BH1750 (GY-302): Digital Ambient Light Sensor with I2C interface. Specification Datasheet https://www.handsontec.com/dataspecs/sensor/BH1750%20Light%20Sensor.pdf
     
-    Soil Moisture Sensor Module: Resistive/Capacitive probe for measuring earth humidity. Specification Datasheet
+    Soil Moisture Sensor Module: Resistive/Capacitive probe for measuring earth humidity. Specification Datasheet https://www.electrokit.com/upload/product/41015/41015738/41015738_-_Soil_Moisture_Sensor.pdf
     
-    MB102 Breadboard & Jumper Wires: For solderless circuit assembly.
+    MB102 Breadboard & Jumper Wires: For solderless circuit assembly. 
 
-    # Software Components
-    Visual Studio Code: The primary Integrated Development Environment (IDE). Download Page
+# Software Components
+    Visual Studio Code: The primary Integrated Development Environment (IDE).
     
-    PlatformIO IDE Extension: Professional extension for IoT development. Marketplace Link
+    PlatformIO IDE Extension: Professional extension for IoT development. 
     
-    Teleplot Extension: Real-time telemetry visualizer for VS Code. Marketplace Link
 
 ## 3. Schematics
     
-    DHT22: VCC → 3.3V | GND → GND | DATA → GPIO 4.
+    A. Power Rail
+    Connect the 3V3 pin on your ESP32 to the red (+) rail of your breadboard.
     
-    BH1750: VCC → 3.3V | GND → GND | SCL → GPIO 22 | SDA → GPIO 21.
+    Connect the GND pin on your ESP32 to the blue (-) rail of your breadboard.
     
-    Soil Sensor: VCC → 3.3V (or 5V/VIN for better range) | GND → GND | AO → GPIO 34 (VP).
+    B. BH1750 (Light Sensor - I2C)
+    VCC → 3.3V Rail
+    
+    GND → GND Rail
+    
+    SCL → GPIO 22 (labeled D22)
+    
+    SDA → GPIO 21 (labeled D21)
+    
+    C. DHT22 (Temp/Hum - Digital)
+    VCC → 3.3V Rail
+    
+    GND → GND Rail
+    
+    Data → GPIO 4 (labeled D4)
+    
+    Note: If your DHT22 is the bare sensor (4 pins), you need a 10k resistor between VCC and Data. If it's on a small PCB (3 pins), the resistor is likely already built-in.
+    
+    D. Soil Moisture (Analog)
+    VCC → 3.3V Rail
+    
+    GND → GND Rail
+    
+    AO (Analog Out) → GPIO 34 (labeled VP or 34)
 
 ## 4. Setup and Build
     Hardware Assembly: Seat the ESP32 in the center of the breadboard. Connect the power rails (3.3V and GND). Plug in the DHT22 and Soil sensor using separate rows. Connect the BH1750 to the I2C pins (21/22).
