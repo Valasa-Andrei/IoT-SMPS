@@ -52,7 +52,7 @@ PlatformIO IDE Extension: Professional extension for IoT development.
     GND → GND Rail
     
     AO (Analog Out) → GPIO 34 (labeled VP or 34)
-<img width="1572" height="1069" alt="WhatsApp Image 2026-04-27 at 16 53 05" src="https://github.com/user-attachments/assets/8a16ea43-518a-41d8-bef9-e05bfacdf0d1" />
+<img max-width="800" max-height="600" alt="WhatsApp Image 2026-04-27 at 16 53 05" src="https://github.com/user-attachments/assets/8a16ea43-518a-41d8-bef9-e05bfacdf0d1" />
 
 # 4. Setup and Build
 
@@ -79,5 +79,7 @@ Compilation: Click the Checkmark icon in the PlatformIO toolbar to verify the co
     
 Deployment: Connect the ESP32 via USB and click the Right Arrow icon to upload the firmware.
     
-Initialization: Open the Serial Monitor (plug icon) to ensure sensors are initializing correctly. You can see the read data from the sensors there
-    
+Initialization: Open the Serial Monitor (plug icon) to ensure sensors are initializing correctly. 
+
+Visualitzation: Here are the read values from the sensors, it updates each 2 seconds.
+<img width="602" height="158" alt="image" src="https://github.com/user-attachments/assets/dfd1356e-5097-4d73-9c50-fdad08096794" />
