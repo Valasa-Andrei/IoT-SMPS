@@ -1,27 +1,29 @@
-## IoT-SMPS
+# IoT-SMPS
 A smart monitoring system for plants
-## 1. Project Description
-    The Smart Garden Environmental Monitoring System is an IoT-based project designed to track the health of indoor plants in real-time. By utilizing an ESP32 microcontroller, the system monitors four critical variables: air temperature, humidity, ambient light intensity, and soil moisture levels. This data is processed locally and streamed to a high-fidelity visualizer in VS Code (Teleplot), allowing for immediate data analysis and intervention. The goal of the project is to provide a low-power, scalable solution for precision agriculture and home automation.
+# 1. Project Description
 
-## 2. Pre-requisites
-# Hardware Components
-    ESP32 DevKit V1 (30-pin): The core microcontroller with Wi-Fi and Bluetooth capabilities. Specification Datasheet https://documentation.espressif.com/esp32_datasheet_en.pdf
-    
-    DHT22 (AM2302): High-accuracy digital temperature and humidity sensor. Specification Datasheet https://www.edn.com/am2302-dht22-datasheet/
-    
-    BH1750 (GY-302): Digital Ambient Light Sensor with I2C interface. Specification Datasheet https://www.handsontec.com/dataspecs/sensor/BH1750%20Light%20Sensor.pdf
-    
-    Soil Moisture Sensor Module: Resistive/Capacitive probe for measuring earth humidity. Specification Datasheet https://www.electrokit.com/upload/product/41015/41015738/41015738_-_Soil_Moisture_Sensor.pdf
-    
-    MB102 Breadboard & Jumper Wires: For solderless circuit assembly. 
+The Smart Garden Environmental Monitoring System is an IoT-based project designed to track the health of indoor plants in real-time. By utilizing an ESP32 microcontroller, the system monitors four critical variables: air temperature, humidity, ambient light intensity, and soil moisture levels. This data is processed locally and streamed to a high-fidelity visualizer in VS Code (Teleplot), allowing for immediate data analysis and intervention. The goal of the project is to provide a low-power, scalable solution for precision agriculture and home automation.
 
-# Software Components
-    Visual Studio Code: The primary Integrated Development Environment (IDE).
+# 2. Pre-requisites
+## Hardware Components
+
+ESP32 DevKit V1 (30-pin): The core microcontroller with Wi-Fi and Bluetooth capabilities. Specification Datasheet https://documentation.espressif.com/esp32_datasheet_en.pdf
     
-    PlatformIO IDE Extension: Professional extension for IoT development. 
+DHT22 (AM2302): High-accuracy digital temperature and humidity sensor. Specification Datasheet https://www.edn.com/am2302-dht22-datasheet/
+    
+BH1750 (GY-302): Digital Ambient Light Sensor with I2C interface. Specification Datasheet https://www.handsontec.com/dataspecs/sensor/BH1750%20Light%20Sensor.pdf
+    
+Soil Moisture Sensor Module: Resistive/Capacitive probe for measuring earth humidity. Specification Datasheet https://www.electrokit.com/upload/product/41015/41015738/41015738_-_Soil_Moisture_Sensor.pdf
+    
+MB102 Breadboard & Jumper Wires: For solderless circuit assembly. 
+
+## Software Components
+Visual Studio Code: The primary Integrated Development Environment (IDE).
+    
+PlatformIO IDE Extension: Professional extension for IoT development. 
     
 
-## 3. Schematics
+# 3. Schematics
     
     A. Power Rail
     Connect the 3V3 pin on your ESP32 to the red (+) rail of your breadboard.
@@ -44,8 +46,6 @@ A smart monitoring system for plants
     
     Data → GPIO 4 (labeled D4)
     
-    Note: If your DHT22 is the bare sensor (4 pins), you need a 10k resistor between VCC and Data. If it's on a small PCB (3 pins), the resistor is likely already built-in.
-    
     D. Soil Moisture (Analog)
     VCC → 3.3V Rail
     
@@ -53,12 +53,17 @@ A smart monitoring system for plants
     
     AO (Analog Out) → GPIO 34 (labeled VP or 34)
 
-## 4. Setup and Build
-    Hardware Assembly: Seat the ESP32 in the center of the breadboard. Connect the power rails (3.3V and GND). Plug in the DHT22 and Soil sensor using separate rows. Connect the BH1750 to the I2C pins (21/22).
+# 4. Setup and Build
+
+Hardware Assembly: 
+1. Connect the 3V3 pin and the GND pin from the ESP 32 to the breadboard
+2. Connect DHT22 sensor to power and ground and connect the data pin to D4
+3. Connect BH1750 sensor to power and ground and connect the SCL pin to D22 and SDA to D21 
+4. Connect the Soil Moisture sensor to power and ground and the AO pin to the VP pin from the ESP32
     
-    VS Code Configuration: Open VS Code and create a new PlatformIO Project. Select "Espressif ESP32 Dev Module" as the board and "Arduino" as the framework.
+VS Code Configuration: Open VS Code and create a new PlatformIO Project. Select "Espressif ESP32 Dev Module" as the board and "Arduino" as the framework.
     
-    Library Installation: In platformio.ini, add the following dependencies:
+Library Installation: In platformio.ini, add the following dependencies:
 
     Ini, TOML
     lib_deps =
@@ -67,10 +72,11 @@ A smart monitoring system for plants
         claws/BH1750
     Pin Definitions: Ensure DHTPIN is set to 4 and SOIL_PIN is set to 34 in your code.
 
-## 5. Running
-    Compilation: Click the Checkmark icon in the PlatformIO toolbar to verify the code is error-free.
+# 5. Running
+
+Compilation: Click the Checkmark icon in the PlatformIO toolbar to verify the code is error-free.
     
-    Deployment: Connect the ESP32 via USB and click the Right Arrow icon to upload the firmware.
+Deployment: Connect the ESP32 via USB and click the Right Arrow icon to upload the firmware.
     
-    Initialization: Open the Serial Monitor (plug icon) to ensure sensors are initializing correctly.
+Initialization: Open the Serial Monitor (plug icon) to ensure sensors are initializing correctly. You can see the read data from the sensors there
     
