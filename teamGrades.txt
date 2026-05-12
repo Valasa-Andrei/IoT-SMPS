@@ -1,0 +1,10 @@
+Student Name: Tompea Maria-Daria
+Proposed Grade: 10
+Grade Details: Had almost all the components necessary for the project
+already, helped with building the first prototype, huge help and very
+communicative
+
+Student Name: Mezei Antoniu Robert 
+Proposed Grade: 10
+Grade Details: Built the entire frontend for the finished Arduino project, also he acquired
+the distance sensor which was necessary for the build.
